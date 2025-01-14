@@ -10,6 +10,6 @@ This portfolio serves as a central hub for all my web development projects, high
 
 I'm always open to new opportunities and collaborations. If you'd like to get in touch, feel free to reach out:
 
-- **Email:** [alexteleanu9@gmail.com](mailto:victor.teleanu@example.com)
-- **LinkedIn:** [Victor Teleanu](#https://www.linkedin.com/in/victor-teleanu-5412602a9/)
-- **Twitter:** [@VictorTeleanu](#)
+- **Email:** [victorteleanu.dev@gmail.com](mailto:victorteleanu.dev@gmail.com)
+- **LinkedIn:** [Victor Teleanu](https://www.linkedin.com/in/victor-teleanu-5412602a9/)
+- **Twitter:** [@VictorTeleanu](https://x.com/vteleanu_dev)
