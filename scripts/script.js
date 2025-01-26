@@ -52,4 +52,4 @@ $(document).ready(function() {
             $(window).scrollTop(scrollPosition);
         }
     });
-})
+});
