@@ -18,6 +18,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="scripts/script.js"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -110,7 +111,7 @@
                 <div class="project-box">
                     <img src="multimedia/Tracker-project.png" alt="Project 2">
                     <h3>Project 2</h3>
-                    <a href="#" class="btn">See More</a>
+                    <a href="#" class="btn btn-project2">See More</a>
                 </div>
             </div>
             <div id="projectsModal">
@@ -121,7 +122,145 @@
                         expedita pariatur quasi natus corporis. Perspiciatis et iste obcaecati, ad debitis mollitia accusantium aperiam quasi dolore?</p>
                 </div>
             </div>
+            <div id="projectsModal2">
+                <div id="containerModal2">
+                    <h3>Project 2</h3>
+                    <img src="multimedia/Tracker-project.png" alt="Project 2">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, perspiciatis aperiam non facere vel
+                        expedita pariatur quasi natus corporis. Perspiciatis et iste obcaecati, ad debitis mollitia accusantium aperiam quasi dolore?</p>
+                </div>
+            </div>
         </section>
+
+        <!-- Services -->
+        <section class="toolkit" id="toolkit">
+            <h1>Toolkit</h1>
+            <div class="toolkit-container">
+                <!-- Frontend Section -->
+                <div class="toolkit-category">
+                    <h2>Frontend</h2>
+                    <ul>
+                        <li>
+                            <i class="bx bxl-html5"></i>
+                            <span>HTML</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-css3"></i>
+                            <span>CSS</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-javascript"></i>
+                            <span>JavaScript</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-jquery"></i>
+                            <span>JQuery</span>
+                        </li>                       
+                        <li>
+                            <i class="bx bxl-angular"></i>
+                            <span>Angular</span>
+                            <span class="learning">Learning</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-react"></i>
+                            <span>React</span>
+                            <span class="learning">Learning</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Backend Section -->
+                <div class="toolkit-category">
+                    <h2>Backend</h2>
+                    <ul>
+                        <li>
+                            <i class="bx bxl-php"></i>
+                            <span>PHP</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-symfony"></i>
+                            <span>Symfony</span>
+                        </li>                        
+                        <li>
+                            <i class="bx bxl-java"></i>
+                            <span>Java</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-python"></i>
+                            <span>Python</span>
+                            <span class="learning">Learning</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </li>
+                                              
+                        <li>
+                            <i class="bx bxl-mongodb"></i>
+                            <span>MongoDB</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Utilities Section -->
+                <div class="toolkit-category">
+                    <h2>Utilities</h2>
+                    <ul>
+                        <li>
+                            <i class="bx bxl-git"></i>
+                            <span>Git</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-docker"></i>
+                            <span>Docker</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-visual-studio"></i>
+                            <span>Visual Studio Code</span>
+                        </li>
+                        <li>
+                            <i class="bx bxl-aws"></i>
+                            <span>AWS</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h1>Contact Me</h1>
+            <form action="#" method="POST" id="contact-form">
+                <div class="form-grid">
+                    <div class="left-group">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" name="phone" placeholder="Your Phone" required>
+                        </div>
+                    </div>
+                    <div class="right-group">
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+
 
         <!-- Footer -->
         <footer>
@@ -132,12 +271,13 @@
                 <i class="bx bxs-phone phone-icon"></i>
                 <span>+34 671 32 80 23</span>
             </div>                  
-            <div class="footer-go-back">
+            <div class="footer-go-back" id="footer-go-back">
                 <button class="button-icon" aria-label="Back to top">
                     <i class="bx bx-up-arrow-alt"></i>
                 </button>
             </div>        
-        </footer>          
+        </footer>
+    
     </div>                        
 </body>
 </html>
