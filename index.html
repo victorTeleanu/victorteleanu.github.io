@@ -10,14 +10,14 @@
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Victor Teleanu's portfolio - Web Developer">
     <meta property="og:description" content="Discover the projects and skills of Victor Teleanu, web developer.">
-    <!-- <meta property="og:image" content="ruta/a/imagen-de-previa.jpg">
-    <meta property="og:url" content="https://victorteleanu.com"> -->
+    <meta property="og:image" content="https://victorteleanu.github.io/multimedia/property.jpeg">
+    <!--<meta property="og:url" content="https://victorteleanu.com">-->
     <title>Victorteleanu.dev</title>
     <link rel="icon" href="multimedia/favicon.png" type="image">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/jquery.typist.js"></script>
     <script src="scripts/script.js"></script>
-    <script src="scripts/jquery.bounceImage.js"></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
@@ -28,17 +28,17 @@
             <div class="logo">
                 <img src="multimedia/logo_transparent2.png" alt="VATC Logo">
             </div>
-            <nav class="navbar" aria-label="Main Navigation">
+            <nav class="navbar" id="navbar" aria-label="Main Navigation">
                 <ul>
                     <li><a href="#" id="start" aria-label="Go to Home section">Home</a></li>
                     <li><a href="#" id="about-link" aria-label="Learn more About me">About</a></li>
                     <li><a href="#" id="projects-link" aria-label="View my Projects">Projects</a></li>
-                    <li><a href="#" id="services-link" aria-label="Discover my Services">Services</a></li>
+                    <li><a href="#" id="services-link" aria-label="Discover my Toolkit">Toolkit</a></li>
                     <li><a href="#" id="contact-link" aria-label="Contact me">Contact</a></li>
                 </ul>
             </nav>
-            <div class="hamburger" id="hamburger-icon">
-                
+            <div class="hamburger" id="hamburger">
+                <i class="bx bx-menu"></i>
             </div>
         </div>
     </header>    
@@ -50,7 +50,7 @@
                 <div class="home-content">
                     <h3>Hello, this is</h3>
                     <h1>Victor Teleanu</h1>
-                    <h3>I'm a Full Stack Developer</h3>
+                    <h3 id="dynamicText"></h3>
                     <p><p>Passionate about technology, web development and cybersecurity. Here I share my projects and skills.</p>
                     <div class="social-media">
                         <ul class="icons">
@@ -84,20 +84,20 @@
                         </ul>
                     </div>
                     <div id="download-cvs">
-                        <a href="#" class="btn">Download my CV (EN)</a>
-                        <a href="#" class="btn">Descarga mi CV (ES)</a>
+                        <a href="multimedia/CV - Victor Teleanu (EN).pdf" target="_blank" class="btn">Download my CV (EN)</a>
+                        <a href="multimedia/CV - Victor Teleanu (ES).pdf" target="_blank" class="btn">Descarga mi CV (ES)</a>
                     </div>    
                 </div>
                 <div class="home-img">
-                    <img src="multimedia/avatar_sinfondo.png"  class="img-bounce" alt="Image of Victor (Home)">
-                </div>        
+                    <img src="multimedia/avatar_sinfondo.png"  class="img-bounce-home" alt="Image of Victor (Home)">
+                </div>  
             </div>
         </section>
 
         <!-- About -->        
         <section class="about" id="about">
             <div class="about-img">
-                <img src="multimedia/avatar_sinfondo2.png"  class="img-bounce" alt="Image of Victor (About)">
+                <img src="multimedia/avatar_sinfondo2.png"  class="img-bounce-about" alt="Image of Victor (About)">
             </div>
             <div class="about-content">
                 <h1>About Me</h1>
@@ -113,12 +113,12 @@
             <div class="projects-container">
                 <div class="project-box">
                     <img src="multimedia/Tracker-project.png" alt="Project 1">
-                    <h3>Project 1</h3>
+                    <h3>Tracker Project</h3>
                     <a href="#" class="btn btn-project1">See More</a>
                 </div>
                 <div class="project-box">
                     <img src="multimedia/Tracker-project.png" alt="Project 2">
-                    <h3>Project 2</h3>
+                    <h3>CyberEduca</h3>
                     <a href="#" class="btn btn-project2">See More</a>
                 </div>
             </div>
@@ -132,7 +132,7 @@
             </div>
             <div id="projectsModal2">
                 <div id="containerModal2">
-                    <h3>Project 2</h3>
+                    <h3>CyberEduca</h3>
                     <img src="multimedia/Tracker-project.png" alt="Project 2">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, perspiciatis aperiam non facere vel
                         expedita pariatur quasi natus corporis. Perspiciatis et iste obcaecati, ad debitis mollitia accusantium aperiam quasi dolore?</p>
@@ -269,11 +269,10 @@
             </form>
         </section>
 
-
         <!-- Footer -->
         <footer>
             <div class="footer-copy">
-                <p>&copy; 2025 Victor Teleanu. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Victor Teleanu. All rights reserved.</p>
             </div>
             <div class="footer-phone">
                 <i class="bx bxs-phone phone-icon"></i>

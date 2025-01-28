@@ -2,23 +2,23 @@ $(document).ready(function() {
     // 1. Scrolls
     $("#start").on("click", function(event) {
         event.preventDefault();
-        $("html, body").animate({ scrollTop: 0 }, 0);
+        $("html, body").animate({ scrollTop: $("#home").offset().top - ($(window).height()/2) + ($("#home").outerHeight()/2) }, 0);
     });
     $("#about-link").on("click", function(event) {
         event.preventDefault();
-        $("html, body").animate({ scrollTop: 750 }, 0);
+        $("html, body").animate({ scrollTop: $("#about").offset().top - ($(window).height()/2) + ($("#about").outerHeight()/2) }, 0);
     });
     $("#projects-link").on("click", function(event) {
         event.preventDefault();
-        $("html, body").animate({ scrollTop: 1700 }, 0);
+        $("html, body").animate({ scrollTop: $("#projects").offset().top - ($(window).height()/2) + ($("#projects").outerHeight()/2) }, 0);
     });
     $("#services-link").on("click", function(event) {
         event.preventDefault();
-        $("html, body").animate({ scrollTop: 2500 }, 0);
+        $("html, body").animate({ scrollTop: $("#toolkit").offset().top - ($(window).height()/2) + ($("#toolkit").outerHeight()/2) }, 0);
     });
     $("#contact-link").on("click", function(event) {
         event.preventDefault();
-        $("html, body").animate({ scrollTop: 3300 }, 0);
+        $("html, body").animate({ scrollTop: $("#contact").offset().top - ($(window).height()/2) + ($("#contact").outerHeight()/2) }, 0);
     });
     
     //2. Button footer go back
@@ -71,6 +71,20 @@ $(document).ready(function() {
             $(window).scrollTop(scrollPosition);
         }
     });
+    //3.4 FIlter to projects
+    $(".project-box img").on("mouseover", function() {
+        $(this).css({
+            filter: "unset",
+            transform: "scale(1.05)"
+        })
+    })
+
+    $(".project-box img").on("mouseout", function() {
+        $(this).css({
+            filter: "grayscale(90%)",
+            transform: "scale(1)"
+        })
+    })
 
     //4. Animation with Hover efect on toolkit
     $(document).ready(function () {
@@ -132,14 +146,32 @@ $(document).ready(function() {
     });
 
     //6. Hamburger menu
-    
-         
-    /*7. Move the image
-    $(document).ready(function() {
-            $('.img-bounce').bounceImage({
-            moveDistance: 5,
-            bounceSpeed: 300,
-            bounceInterval: 500
+    $(".hamburger").on("click", function () {
+        $(".navbar").toggleClass("active-nav");
+    })
+
+    //7. Dynamic Text (Plugin JQuery-typist)
+    function dynamicText() {
+        $('#dynamicText')
+        .typist({
+            speed: 20, // Velocidad al escribir
+        })
+        .typistAdd("Full Stack Developer") // Texto inicial
+        .typistPause(2000) // Pausa antes de borrar
+        .typistRemove(20) // Borra 12 caracteres (el texto anterior)
+        .typistAdd("Hola") // Añade un nuevo texto
+        .typistPause(2000) // Pausa antes de borrar
+        .typistRemove(4) // Borra el nuevo texto
+        .typistAdd("Fully jQuery-based!") // Añade el siguiente texto
+        .typistPause(2000)
+        .on('end_type.typist', function () {
+            if ($(this).text() == "Fully jQuery-based!|") {
+                setTimeout(function () {
+                    $("#dynamicText").html("");
+                    dynamicText();
+                }, 2000);
+            }
         });
-    });*/
+    }
+    dynamicText();
 });
