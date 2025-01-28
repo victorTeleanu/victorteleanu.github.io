@@ -134,12 +134,12 @@ $(document).ready(function() {
     //6. Hamburger menu
     
          
-    //7. Move the image
+    /*7. Move the image
     $(document).ready(function() {
             $('.img-bounce').bounceImage({
             moveDistance: 5,
             bounceSpeed: 300,
             bounceInterval: 500
         });
-    });
+    });*/
 });
