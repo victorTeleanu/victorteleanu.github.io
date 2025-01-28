@@ -13,6 +13,7 @@
 /* General */
 html {
     overflow-x: hidden;
+    font-size: 16px;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
     color: #AAB7B7;
     flex-direction: column;
     margin: 0 auto;
+    font-size: 1rem;
 }
 
 html, body {
@@ -32,6 +34,8 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
+    z-index: 1000;
+    background-color: #1A2D42;
 }
 
 /* Header Container */
@@ -93,6 +97,7 @@ header {
 
 section.home, section.about, section.services {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 40px 50px;
@@ -132,6 +137,13 @@ section.about {
 
 section.services {
     grid-area: services;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .home-content, .about-content{
@@ -390,7 +402,6 @@ ul {
 .home-img img, .about-img img {
     width: 55%;
     height: 55%;
-
 }
 
 .about-img {
@@ -524,7 +535,7 @@ ul {
 
 /* Contact Section */
 #contact {
-    text-align: left;
+    text-align: center;
 }
 
 #contact h1 {
@@ -628,6 +639,7 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin-top: 100px;
+    font-size: 16px;
 }
 
 /* Footer Copyright (Left) */
@@ -680,4 +692,263 @@ footer {
 
 .button-icon i:hover {
     color: #D4D8DD;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    /* Cambiar tamaño de fuente en HTML y body */
+    html {
+        font-size: 18px; /* Aumento de tamaño base */
+    }
+
+    body {
+        font-size: 1rem; /* 18px por el cambio en html */
+    }
+
+    /* Ajustes generales */
+    header {
+        padding: 15px;
+    }
+
+    .navbar ul li {
+        margin-right: 15px;
+        font-size: 18px;
+    }
+    
+    /* Projects Section */
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Toolkit Section */
+    .toolkit-category ul {
+        justify-content: center;
+    }
+
+    .toolkit-category ul li {
+        margin-bottom: 15px;
+        font-size: 1.25rem;
+    }
+
+    #contact {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+    }
+
+    /* Contact Section */
+    #contact-form {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Cambiar tamaño de fuente en HTML y body */
+    html {
+        font-size: 20px; /* Aumento de tamaño base */
+    }
+
+    body {
+        font-size: 1.125rem; /* 20px por el cambio en html */
+    }
+
+    /* Header */
+    header {
+        text-align: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+        font-size: 1.5rem;
+    }
+
+    /* Home Section */
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.25rem;
+    }
+
+    .home-img img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    /* Projects Section */
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Toolkit Section */
+    .toolkit-category ul {
+        display: flex;
+    }
+
+    .toolkit-category ul li {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+
+    /* Social Media */
+    .social-media .icons {
+        justify-content: center;
+    }
+
+    .social-media .icon-content {
+        margin: 0 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Cambiar tamaño de fuente en HTML y body */
+    html, body {
+        font-size: 35px;
+    }
+
+    /* Header */
+    header {
+        padding: 8px;
+    }
+
+    .navbar ul li {
+        font-size: 20px;
+        margin-bottom: -100px;
+    }
+
+    /* Home Section */
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+        width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+    }
+    
+    section.home {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    section.about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+        margin-top: -70px;
+        margin-bottom: -70px;
+    }
+
+    .home-content h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .home-content p {
+        margin-bottom: 20px;
+    }
+
+    /* Ajuste de los iconos */
+    .icons {
+        display: flex;
+        justify-content: start; /* Alinea los iconos a la derecha */
+        padding-right: 20px; /* Espaciado adicional si es necesario */
+    }
+
+    .icon-content {
+        margin-left: auto; /* Espaciado entre los iconos */
+    }
+
+    .home-img {
+        width: 100%;
+        margin-top: 20px;
+        max-width: 250px;
+        height: auto;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .home-img img, .about-img img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        display: block;
+        object-fit: contain;
+    }
+
+    .about-img {
+        order: 1;
+    }
+
+    .about-img img {
+        order: 2;
+    }
+
+    .home-content .btn {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 150px;
+        height: 65px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .social-media {
+        margin-top: 20px;
+    }
+
+    /* Projects Section */
+    .projects-container {
+        padding: 10px;
+    }
+
+    /* Toolkit Section */
+    .toolkit-category ul li {
+        font-size: 1.5rem;
+    }
+
+    .toolkit-category ul li i {
+        font-size: 1.75rem;
+    }
+
+    /* Social Media */
+    .social-media .icon-content {
+        font-size: 1.25rem;
+    }
+
+    #contact-form {
+        padding: 30px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

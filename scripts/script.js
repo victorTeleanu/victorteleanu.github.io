@@ -8,7 +8,6 @@ $(document).ready(function() {
         event.preventDefault();
         $("html, body").animate({ scrollTop: 750 }, 0);
     });
-    
     $("#projects-link").on("click", function(event) {
         event.preventDefault();
         $("html, body").animate({ scrollTop: 1700 }, 0);
@@ -23,7 +22,6 @@ $(document).ready(function() {
     });
     
     //2. Button footer go back
-
     $("#footer-go-back").on("click", function(event) {
         event.preventDefault();
         $("html, body").animate({ scrollTop: 0 }, 0);
@@ -123,7 +121,7 @@ $(document).ready(function() {
             const textToCopy = $(".text").text();
 
             navigator.clipboard.writeText(textToCopy).then(() => {
-                const confirmationMessage = $("<span class='confirmation'>¡Texto copiado!</span>");
+                const confirmationMessage = $("<span class='confirmation'>Copied to clipboard!</span>");
                 $(this).before(confirmationMessage);
 
                 confirmationMessage.fadeIn(200).delay(1500).fadeOut(200, function () {
