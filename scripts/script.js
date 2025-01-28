@@ -163,7 +163,7 @@ $(document).ready(function() {
         .typistPause(2000) // Pausa antes de borrar
         .typistRemove(24) // Borra el nuevo texto
         .on('end_type.typist', function () {
-            if ($(this).text() == "Cybersecurity Specialist|") {
+            if ($(this).text() == "Cybersecurity Enthusiast|") {
                 setTimeout(function () {
                     $("#dynamicText").html("");
                     dynamicText();
@@ -174,58 +174,57 @@ $(document).ready(function() {
     dynamicText();
 
     //8. Form validation
-    $(document).ready(function() {
-        $('#contact-form').submit(function(event) {
-            event.preventDefault(); // Evitar el envío del formulario
-    
-            let isValid = true;
-            let name = $('#name').val();
-            let email = $('#email').val();
-            let phone = $('#phone').val();
-            let subject = $('#subject').val();
-            let message = $('#message').val();
-    
-            // Validación del nombre
-            if (name.trim() === '') {
-                alert('Please enter your name.');
-                isValid = false;
-            }
-    
-            // Validación del email
-            if (email.trim() === '' || !validateEmail(email)) {
-                alert('Please enter a valid email.');
-                isValid = false;
-            }
-    
-            // Validación del teléfono (solo números)
-            if (phone.trim() === '' || !/^\d+$/.test(phone)) {
-                alert('Please enter a valid phone number.');
-                isValid = false;
-            }
-    
-            // Validación del asunto
-            if (subject.trim() === '') {
-                alert('Please enter the subject.');
-                isValid = false;
-            }
-    
-            // Validación del mensaje
-            if (message.trim() === '') {
-                alert('Please enter your message.');
-                isValid = false;
-            }
-    
-            // Si todos los campos son válidos, se puede enviar el formulario
-            if (isValid) {
-                alert('Form submitted successfully!');
-                this.submit(); // Envía el formulario si es válido
-            }
-        });
-    
-        // Función para validar el formato de email
-        function validateEmail(email) {
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            return emailRegex.test(email);
+    $('#contact-form').submit(function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+
+        let isValid = true;
+        let name = $('#name').val();
+        let email = $('#email').val();
+        let phone = $('#phone').val();
+        let subject = $('#subject').val();
+        let message = $('#message').val();
+
+        // Validación del nombre
+        if (name.trim() === '') {
+            alert('Please enter your name.');
+            isValid = false;
+        }
+
+        // Validación del email
+        if (email.trim() === '' || !validateEmail(email)) {
+            alert('Please enter a valid email.');
+            isValid = false;
+        }
+
+        // Validación del teléfono (solo números)
+        if (phone.trim() === '' || !/^\d+$/.test(phone)) {
+            alert('Please enter a valid phone number.');
+            isValid = false;
+        }
+
+        // Validación del asunto
+        if (subject.trim() === '') {
+            alert('Please enter the subject.');
+            isValid = false;
+        }
+
+        // Validación del mensaje
+        if (message.trim() === '') {
+            alert('Please enter your message.');
+            isValid = false;
+        }
+
+        // Si todos los campos son válidos, se puede enviar el formulario
+        if (isValid) {
+            alert('Form submitted successfully!');
+            this.submit(); // Envía el formulario si es válido
         }
     });
+
+    // Función para validar el formato de email
+    function validateEmail(email) {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    }
+    
 });
