@@ -132,34 +132,14 @@ $(document).ready(function() {
     });
 
     //6. Hamburger menu
+    
+         
+    //7. Move the image
     $(document).ready(function() {
-        $('#hamburger-icon').click(function() {
-            var $menu = $('.navbar ul');
-    
-            $menu.toggle();
-    
-            if ($(window).width() <= 768) {
-                $menu.css({
-                    position: 'absolute',
-                    top: $(this).offset().top + $(this).outerHeight() + 5,
-                    left: $(this).offset().left - 20,
-                    width: $(this).outerWidth(),
-                    zIndex: 9999
-                });
-            }
-        });
-    
-        if ($(window).width() <= 768) {
-            $('.navbar ul').hide();
-        }
-    
-        $(window).resize(function() {
-            if ($(window).width() > 768) {
-                $('.navbar ul').show();
-            } else {
-                $('.navbar ul').hide();
-            }
+            $('.img-bounce').bounceImage({
+            moveDistance: 5,
+            bounceSpeed: 300,
+            bounceInterval: 500
         });
     });
-         
 });

@@ -716,7 +716,7 @@ footer {
     }
 
     .navbar ul {
-        display: none;  /* Ocultar el menú en pantallas pequeñas */
+        display: none;
     }
 }
 
@@ -724,4 +724,5 @@ footer {
     #content {
         max-width: 100px;
     }
+    
 }
