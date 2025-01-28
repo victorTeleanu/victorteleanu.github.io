@@ -709,20 +709,153 @@ footer {
     color: #D4D8DD;
 }
 
-
+/* RESPONSIVE DESIGN */
+/*
 @media screen and (max-width: 768px) {
-    .hamburger {
+    
+    #content {
         display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    section.home, section.about, section.projects, section.services, section.contact {
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+        padding: 10px;
     }
 
     .navbar ul {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #1A2D42;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .navbar ul li a {
+        font-size: 18px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active + .navbar ul {
+        display: flex;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .toolkit-container {
+        gap: 20px;
     }
 }
+*/
 
 @media screen and (max-width: 480px) {
     #content {
-        max-width: 100px;
+        padding: 5px;
+        gap: 15px;
+        max-width: 90%;
     }
-    
+
+    section.home, section.about, section.projects, section.services, section.contact {
+        margin: 20px auto;
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .navbar ul {
+        font-size: 16px;
+    }
+    .projects-container {
+        gap: 10px;
+    }
+
+    .project-box {
+        padding: 10px;
+    }
+
+    .toolkit-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p, .btn {
+        font-size: 1rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-phone {
+        margin: 10px 0;
+    }
+
+    .button-icon i {
+        font-size: 20px;
+    }
 }
+/*
+@media screen and (max-width: 1024px) {
+    #content {
+        padding: 15px;
+        gap: 25px;
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #1A2D42;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active + .navbar ul {
+        display: flex;
+    }
+
+    .home-img, .about-img {
+        display: none;
+    }
+}*/
+
