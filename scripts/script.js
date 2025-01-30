@@ -174,57 +174,93 @@ $(document).ready(function() {
     dynamicText();
 
     //8. Form validation
-    $('#contact-form').submit(function(event) {
-        event.preventDefault(); // Evitar el envío del formulario
+    $('#contact-form').on('reset', function () {
+        $('#name').focus();
+        $('#custom-alert').removeClass('show').addClass('hidden');
+    });
+
+    function showAlert(message, isSuccess = false) {
+        const alertBox = $('#custom-alert');
+        const alertMessage = $('#alert-message');
+
+        alertMessage.text(message);
+        alertBox.toggleClass('bg-green', isSuccess);
+        alertBox.toggleClass('bg-red', !isSuccess);
+
+        alertBox.removeClass('hidden').addClass('show');
+
+        $('#close-alert').off('click').on('click', function () {
+            alertBox.removeClass('show').addClass('hidden');
+        });
+
+        setTimeout(function () {
+            alertBox.removeClass('show').addClass('hidden');
+        }, 5000);
+    }
+
+    function validateName(name) {
+        const namePattern = /^[A-Z][a-z]+(?: [A-Z][a-z]+)*$/;
+        return namePattern.test(name);
+    }
+
+    function validateEmail(email) {
+        const emailPattern = /^[^@.\s][^@\s]*[^@.\s]@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(email);
+    }
+
+    $('#contact-form').on('submit', function (event) {
+        event.preventDefault();
+
+        const name = $('#name');
+        const email = $('#email');
+        const phone = $('#phone');
+        const subject = $('#subject');
+        const message = $('#message');
 
         let isValid = true;
-        let name = $('#name').val();
-        let email = $('#email').val();
-        let phone = $('#phone').val();
-        let subject = $('#subject').val();
-        let message = $('#message').val();
 
-        // Validación del nombre
-        if (name.trim() === '') {
-            alert('Please enter your name.');
+        if (!name.val() || !email.val() || !phone.val() || !subject.val() || !message.val()) {
+            showAlert('Please fill in all fields.');
+            isValid = false;
+        } else if (!validateName(name.val())) {
+            showAlert('Please enter a valid name.');
+            name.focus();
+            isValid = false;
+        } else if (!validateEmail(email.val())) {
+            showAlert('Please enter a valid email.');
+            email.focus();
             isValid = false;
         }
 
-        // Validación del email
-        if (email.trim() === '' || !validateEmail(email)) {
-            alert('Please enter a valid email.');
-            isValid = false;
-        }
-
-        // Validación del teléfono (solo números)
-        if (phone.trim() === '' || !/^\d+$/.test(phone)) {
-            alert('Please enter a valid phone number.');
-            isValid = false;
-        }
-
-        // Validación del asunto
-        if (subject.trim() === '') {
-            alert('Please enter the subject.');
-            isValid = false;
-        }
-
-        // Validación del mensaje
-        if (message.trim() === '') {
-            alert('Please enter your message.');
-            isValid = false;
-        }
-
-        // Si todos los campos son válidos, se puede enviar el formulario
         if (isValid) {
-            alert('Form submitted successfully!');
-            this.submit(); // Envía el formulario si es válido
+            showAlert('Message sent, thank you.', true);
+            $('#contact-form')[0].reset();
         }
     });
 
-    // Función para validar el formato de email
-    function validateEmail(email) {
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return emailRegex.test(email);
+    //9. Bring PDF with Ajax
+    $("#cv-en").click(function (e) {
+        e.preventDefault();
+        openCV("EN");
+    });
+
+    $("#cv-es").click(function (e) {
+        e.preventDefault();
+        openCV("ES");
+    });
+
+    function openCV(lang) {
+        let pdfUrl = "multimedia/CV - Victor Teleanu (" + lang + ").pdf";
+
+        $.ajax({
+            url: pdfUrl,
+            type: "HEAD",
+            success: function () {
+                window.open(pdfUrl, "_blank");
+            },
+            error: function () {
+                alert("El archivo no está disponible.");
+            }
+        });
     }
-    
 });
