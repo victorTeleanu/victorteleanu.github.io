@@ -87,62 +87,58 @@ $(document).ready(function() {
     })
 
     //4. Animation with Hover efect on toolkit
-    $(document).ready(function () {
-        const logoColors = {
-            "bxl-html5": "#E34F26",
-            "bxl-css3": "#1572B6",
-            "bxl-javascript": "#F7DF1E",
-            "bxl-jquery": "#0769AD",
-            "bxl-angular": "#DD0031",
-            "bxl-react": "#61DAFB",
-            "bxl-php": "#777BB4",
-            "fa-symfony": "#000000",
-            "bxl-java": "#007396",
-            "bxl-python": "#3776AB",
-            "fa-database": "#FFCA28",
-            "bxl-mongodb": "#47A248",
-            "bxl-git": "#F05033",
-            "bxl-docker": "#2496ED",
-            "bxl-visual-studio": "#5C2D91",
-            "bxl-aws": "#FF9900"
-        };
+    const logoColors = {
+        "bxl-html5": "#E34F26",
+        "bxl-css3": "#1572B6",
+        "bxl-javascript": "#F7DF1E",
+        "bxl-jquery": "#0769AD",
+        "bxl-angular": "#DD0031",
+        "bxl-react": "#61DAFB",
+        "bxl-php": "#777BB4",
+        "fa-symfony": "#000000",
+        "bxl-java": "#007396",
+        "bxl-python": "#3776AB",
+        "fa-database": "#FFCA28",
+        "bxl-mongodb": "#47A248",
+        "bxl-git": "#F05033",
+        "bxl-docker": "#2496ED",
+        "bxl-visual-studio": "#5C2D91",
+        "bxl-aws": "#FF9900"
+    };
 
-        $(".toolkit-container i").hover(
-            function () {
-                const iconClass = $(this).attr("class").split(" ").pop();
-                const color = logoColors[iconClass];
-                if (color) {
-                    $(this).css({
-                        "color": color,
-                        "transform": "scale(1.2)",
-                        "transition": "all 0.2s ease"
-                    });
-                }
-            },
-            function () {
+    $(".toolkit-container i").hover(
+        function () {
+            const iconClass = $(this).attr("class").split(" ").pop();
+            const color = logoColors[iconClass];
+            if (color) {
                 $(this).css({
-                    "color": "",
-                    "transform": "scale(1)",
+                    "color": color,
+                    "transform": "scale(1.2)",
                     "transition": "all 0.2s ease"
                 });
             }
-        );
-    });
+        },
+        function () {
+            $(this).css({
+                "color": "",
+                "transform": "scale(1)",
+                "transition": "all 0.2s ease"
+            });
+        }
+    );
 
     //5. Copy to clipboard
-    $(document).ready(function () {
-        $(".Btn").on("click", function () {
-            const textToCopy = $(".text").text();
+    $(".Btn").on("click", function () {
+        const textToCopy = $(".text").text();
 
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const confirmationMessage = $("<span class='confirmation'>Copied to clipboard!</span>");
-                $(this).before(confirmationMessage);
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const confirmationMessage = $("<span class='confirmation'>Copied to clipboard!</span>");
+            $(this).before(confirmationMessage);
 
-                confirmationMessage.fadeIn(200).delay(1500).fadeOut(200, function () {
-                    $(this).remove();
-                });
-            })
-        });
+            confirmationMessage.fadeIn(200).delay(1500).fadeOut(200, function () {
+                $(this).remove();
+            });
+        })
     });
 
     //6. Hamburger menu
@@ -150,18 +146,17 @@ $(document).ready(function() {
         $(".navbar").toggleClass("active-nav");
     })
 
-    //7. Dynamic Text (Plugin JQuery-typist)
     function dynamicText() {
         $('#dynamicText')
         .typist({
-            speed: 20, // Velocidad al escribir
+            speed: 20,
         })
-        .typistAdd("Full-Stack Developer") // Texto inicial
-        .typistPause(2000) // Pausa antes de borrar
-        .typistRemove(20) // Borra 12 caracteres (el texto anterior)
-        .typistAdd("Cybersecurity Enthusiast") // Añade un nuevo texto
-        .typistPause(2000) // Pausa antes de borrar
-        .typistRemove(24) // Borra el nuevo texto
+        .typistAdd("Full-Stack Developer")
+        .typistPause(2000)
+        .typistRemove(20)
+        .typistAdd("Cybersecurity Enthusiast")
+        .typistPause(2000)
+        .typistRemove(24)
         .on('end_type.typist', function () {
             if ($(this).text() == "Cybersecurity Enthusiast|") {
                 setTimeout(function () {
