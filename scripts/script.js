@@ -198,45 +198,65 @@ $(document).ready(function() {
         }, 5000);
     }
 
-    function validateName(name) {
-        const namePattern = /^[A-Z][a-z]+(?: [A-Z][a-z]+)*$/;
-        return namePattern.test(name);
-    }
-
     function validateEmail(email) {
         const emailPattern = /^[^@.\s][^@\s]*[^@.\s]@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailPattern.test(email);
     }
 
+    function validatePhone(phone) {
+        const phonePattern = /^[0-9]{9}$/;
+        return phonePattern.test(phone);
+    }
+
     $('#contact-form').on('submit', function (event) {
         event.preventDefault();
-
-        const name = $('#name');
-        const email = $('#email');
-        const phone = $('#phone');
-        const subject = $('#subject');
-        const message = $('#message');
-
+    
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const phone = $('#phone').val().trim();
+        const subject = $('#subject').val().trim();
+        const message = $('#message').val().trim();
+    
         let isValid = true;
-
-        if (!name.val() || !email.val() || !phone.val() || !subject.val() || !message.val()) {
+    
+        if (!name || !email || !phone || !subject || !message) {
             showAlert('Please fill in all fields.');
             isValid = false;
-        } else if (!validateName(name.val())) {
-            showAlert('Please enter a valid name.');
-            name.focus();
-            isValid = false;
-        } else if (!validateEmail(email.val())) {
+        } else if (!validateEmail(email)) {
             showAlert('Please enter a valid email.');
-            email.focus();
+            $('#email').focus();
+            isValid = false;
+        } else if (!validatePhone(phone)) {
+            showAlert('Please enter a valid phone.');
+            $('#phone').focus();
             isValid = false;
         }
-
+        
+        //10. Send email AJAX
         if (isValid) {
-            showAlert('Message sent, thank you.', true);
-            $('#contact-form')[0].reset();
+            $.ajax({
+                type: "POST",
+                url: "https://formspree.io/f/mnnjvjww",
+                data: {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    subject: subject,
+                    message: message
+                },
+                dataType: "json",
+                success: function () {
+                    showAlert('Thanks for contacting us! We have received your message.', true);
+                    setTimeout(function () {
+                        $('#contact-form')[0].reset();
+                    }, 5000);
+                },
+                error: function () {
+                    showAlert('There was an error sending your message. Please try again later.');
+                }
+            });
         }
-    });
+    });    
 
     //9. Bring PDF with Ajax
     $("#cv-en").click(function (e) {
