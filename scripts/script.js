@@ -146,6 +146,7 @@ $(document).ready(function() {
         $(".navbar").toggleClass("active-nav");
     })
 
+    //7. Dynamic Text
     function dynamicText() {
         $('#dynamicText')
         .typist({
