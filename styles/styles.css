@@ -824,12 +824,13 @@ footer {
 
     .active-nav {
         display: flex;
-        ul {
-            flex-direction: column !important;
-            gap: 5px;
-            font-size: 3rem;
-        }
     }
+    
+    .active-nav ul {
+        flex-direction: column !important;
+        gap: 5px;
+        font-size: 3rem;
+    }    
 
     .hamburger {
         display: block !important;
